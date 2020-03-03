@@ -32,7 +32,7 @@ ki.log("Auth Token : " + str(ki.authToken))
 channel1 = LineChannel(ki,ki.server.CHANNEL_ID['LINE_TIMELINE'])
 ki.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
-kk = LineClient(authToken="")
+kk = LineClient(authToken='EO7tsUHiuVHk6DnuWXpc.jbZLOmi4qNygVIlkL64rVa.IM9lGcNZAf/NGaRsnnet+JRWHeNy0tYokJVhGe5Vc+Q=')
 kk.log("Auth Token : " + str(kk.authToken))
 channel2 = LineChannel(kk,kk.server.CHANNEL_ID['LINE_TIMELINE'])
 kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
@@ -67,16 +67,16 @@ staff = ["u0ed957da2db9154faf50f6a4d68bcc17"]
 lineProfile = cl.getProfile()
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
-Bmid = kk.getProfile().mid
+#Bmid = kk.getProfile().mid
 #Cmid = kc.getProfile().mid
 #Dmid = kb.getProfile().mid
 #Emid = ke.getProfile().mid
 #Zmid = sw.getProfile().mid
 #KAC = [ki,kk,kc,kb,ke]
 #ABC = [ki,kk,kc,kb,ke]
-ABC = [ki,kk]
+ABC = [ki]
 #Bots = [mid,Amid,Bmid,Cmid,Dmid,Emid,Zmid]
-Bots = [mid,Amid,Bmid]
+Bots = [mid,Amid]
 Saints = admin + staff
 
 
@@ -93,7 +93,7 @@ msg_dict = {}
 msg_dict1 = {}
 
 responsename1 = ki.getProfile().displayName
-responsename2 = kk.getProfile().displayName
+#responsename2 = kk.getProfile().displayName
 #responsename3 = kc.getProfile().displayName
 #responsename4 = kb.getProfile().displayName
 #responsename5 = ke.getProfile().displayName
@@ -3649,9 +3649,9 @@ def bot(op):
                                 invsend = 0
                                 Ticket = cl.reissueGroupTicket(msg.to)
                                 ki.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                ki.sendMessage(msg.to, "Assalamualaikum "+str(G.name))
+                                ki.sendMessage(msg.to, "Salken all "+str(G.name))
                                 kk.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                kk.sendMessage(msg.to, "Shalom "+str(G.name))
+                                kk.sendMessage(msg.to, "Salken all "+str(G.name))
                                 kc.acceptGroupInvitationByTicket(msg.to,Ticket)
                                 kc.sendMessage(msg.to, "Salken all "+str(G.name))
                                 kb.acceptGroupInvitationByTicket(msg.to,Ticket)
@@ -3666,9 +3666,9 @@ def bot(op):
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
-                                ki.sendMessage(msg.to, "tak metu sek yo "+str(G.name))
+                                ki.sendMessage(msg.to, "Good bye "+str(G.name))
                                 ki.leaveGroup(msg.to)
-                                kk.sendMessage(msg.to, "Golek kopi "+str(G.name))
+                                kk.sendMessage(msg.to, "Good bye "+str(G.name))
                                 kk.leaveGroup(msg.to)
                                 kc.sendMessage(msg.to, "Good bye "+str(G.name))
                                 kc.leaveGroup(msg.to)
@@ -3681,7 +3681,7 @@ def bot(op):
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
-                                cl.sendMessage(msg.to, "Jancok Kabeh "+str(G.name))
+                                cl.sendMessage(msg.to, "Asalamu.alaikum..wr..wb..! Bye bye "+str(G.name))
                                 cl.leaveGroup(msg.to)
 
                         elif cmd.startswith("leavegrup "):
@@ -4245,7 +4245,7 @@ def bot(op):
                                   for target in targets:
                                    if not target in admin and Bots:
                                       try:
-                                          klist=[cl,ki,kk]
+                                          klist=[cl,ki]
                                           kicker=random.choice(klist)
                                           kicker.kickoutFromGroup(msg.to,[target])
                                           print (msg.to,[g.mid])
