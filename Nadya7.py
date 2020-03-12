@@ -22,20 +22,20 @@ from googletrans import Translator
 #import youtube_dl
 #import pyimgflip
 
-cl = LineClient(authToken="")
+cl = LineClient(authToken='EP0zanZZEN4krginKQB7.dTLx2I25fu/VupAK1OVmfW.7aIw5K2ilB8ZHlDBbY66p0Tz5NrYvrWV/Bjw1wtOqJA=')
 cl.log("Auth Token : " + str(cl.authToken))
 channel1 = LineChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
-ki = LineClient(authToken="")
+ki = LineClient(authToken='EPXGF7Qbj5FT8Eupa5Se.f7IcQY6IJdSsBeCzih6ulG.An7wMtlghD+Cyz2WZugMHEnffVslvLAHBF9ZPLHVztY=')
 ki.log("Auth Token : " + str(ki.authToken))
 channel1 = LineChannel(ki,ki.server.CHANNEL_ID['LINE_TIMELINE'])
 ki.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
-kk = LineClient(authToken="")
-kk.log("Auth Token : " + str(kk.authToken))
-channel2 = LineChannel(kk,kk.server.CHANNEL_ID['LINE_TIMELINE'])
-kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
+#kk = LineClient(authToken="")
+#kk.log("Auth Token : " + str(kk.authToken))
+#channel2 = LineChannel(kk,kk.server.CHANNEL_ID['LINE_TIMELINE'])
+#kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
 
 #kc = LineClient(authToken='EONEODQMWoaZ0dHEYty9.IY4wvsNsDB42ec2USMIE/q.LCVC96Gq2GubRKGp7+mM43o9ws2XA8Va1S63oJS19mc=')
 #kc.log("Auth Token : " + str(kc.authToken))
@@ -52,7 +52,7 @@ kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
 #channel3 = LineChannel(ke,ke.server.CHANNEL_ID['LINE_TIMELINE'])
 #ke.log("Channel Access Token : " + str(channel3.channelAccessToken))
 
-#sw = LineClient(authToken='EO2E08zlTs3IDE1oEOv0.ZvMIOETclkMpTj+N5aZzma.RbTn4/+tDuQ5KnXLZMKnDqAmzI1Fv5EBTo9Xw3mwSyk=')
+#sw = LineClient(authToken='EOBWRVT4mnaKr5bWMUL6.3olxgptQwpg3jsEXhnGqTG.5bGYzX2KPg73/LpFWBBMPu3Vpd9F2SBi0aDn78jXDCQ=')
 #sw.log("Auth Token : " + str(sw.authToken))
 #channel4 = LineChannel(sw,sw.server.CHANNEL_ID['LINE_TIMELINE'])
 #sw.log("Channel Access Token : " + str(channel4.channelAccessToken))
@@ -67,16 +67,16 @@ staff = ["u0ed957da2db9154faf50f6a4d68bcc17"]
 lineProfile = cl.getProfile()
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
-Bmid = kk.getProfile().mid
+#Bmid = kk.getProfile().mid
 #Cmid = kc.getProfile().mid
 #Dmid = kb.getProfile().mid
 #Emid = ke.getProfile().mid
 #Zmid = sw.getProfile().mid
 #KAC = [ki,kk,kc,kb,ke]
 #ABC = [ki,kk,kc,kb,ke]
-ABC = [ki,kk]
+ABC = [cl,ki]
 #Bots = [mid,Amid,Bmid,Cmid,Dmid,Emid,Zmid]
-Bots = [mid,Amid,Bmid]
+Bots = [mid,Amid]
 Saints = admin + staff
 
 
@@ -93,7 +93,7 @@ msg_dict = {}
 msg_dict1 = {}
 
 responsename1 = ki.getProfile().displayName
-responsename2 = kk.getProfile().displayName
+#responsename2 = kk.getProfile().displayName
 #responsename3 = kc.getProfile().displayName
 #responsename4 = kb.getProfile().displayName
 #responsename5 = ke.getProfile().displayName
@@ -798,9 +798,13 @@ def bot(op):
                 if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
                     try:
                         group = cl.getGroup(op.param1)
+                        group1 = ki.getGroup(op.param1)
                         gMembMids = [contact.mid for contact in group.invitee]
+                        gMembMids1 = [contact.mid for contact in group1.invitee]
                         for _mid in gMembMids:
                             cl.cancelGroupInvitation(op.param1,[_mid])
+                        for _mid in gMembMids1:
+                            ki.cancelgroupInvitation(op.param1,[_mid])
                     except:
                         try:
                             group = ki.getGroup(op.param1)
@@ -3502,26 +3506,26 @@ def bot(op):
                         elif cmd == "dkbot" or cmd == "absen":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
-                                cl.sendMessage(msg.to, "[🔰 Ⓓⓚ~ⒷⓄⓣ☯t].")
-                                ki.sendMessage(msg.to, "╚☆Ⓢⓘⓐⓟ☆╗\n╚Ⓚⓞⓜⓐⓝⓓⓝ╮╗")
-                                kk.sendMessage(msg.to, "╚☆Ⓢⓘⓐⓟ☆╗\n╚Ⓚⓞⓜⓐⓝⓓⓝ╮╗")
-                                kc.sendMessage(msg.to, "╚☆Ⓢⓘⓐⓟ☆╗\n╚Ⓚⓞⓜⓐⓝⓓⓝ╮╗")
-                                kb.sendMessage(msg.to, "╚☆Ⓢⓘⓐⓟ☆╗\n╚Ⓚⓞⓜⓐⓝⓓⓝ╮╗")
-                                ke.sendMessage(msg.to, "[🔰ⒹⓄⓝⓔ]")
-                                cl.sendMessage(msg.to,  "╚☆Ⓐⓜⓐⓝ-☆╗\n╚ⒷⓄⓈ☆╮╗")
+                                cl.sendMessage(msg.to, "-Avatar Gang-")
+                                ki.sendMessage(msg.to, "Siap Bos")
+                                kk.sendMessage(msg.to, "Siap Bos")
+                                kc.sendMessage(msg.to, "Siap Bos")
+                                kb.sendMessage(msg.to, "Siap Bos")
+                                ke.sendMessage(msg.to, "Siap Bos")
+                                cl.sendMessage(msg.to,  "Masooookkkk")
 
 
                           elif "queencantik" in msg.text:
                            if msg._from in Bots:
                             if msg.toType == 2:
                              #  print "Otw cleanse"
-                               _name = msg.text.replace("Gass","")
+                               _name = msg.text.replace("queencantik","")
                                gs = cl.getGroup(msg.to)
+                               gs = cl.getGroup(msg.to)
+                               gs = cl.getGroup(msg.to) 
                                gs = ki.getGroup(msg.to)
-                               gs = kk.getGroup(msg.to) 
-                               gs = kc.getGroup(msg.to)
-                               gs = kb.getGroup(msg.to) 
-                               gs = ke.getGroup(msg.to)
+                               gs = ki.getGroup(msg.to) 
+                               gs = ki.getGroup(msg.to)
                                cl.sendMessage(to, "█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█\n█░░║║║╠─║─║─║║║║║╠─░░█\n█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█\nASSALAMUALAIKUM\n")
                                ki.sendMessage(to, 
 "  ╭━Ⓓ✒Ⓡ✒ⒼⓄ✒Ⓝ✒\n"
@@ -3629,13 +3633,13 @@ def bot(op):
                                 except:
                                     pass
                                     
-                        elif cmd == "stay":
+                        elif cmd == "tauran":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                 try:
                                     ginfo = cl.getGroup(msg.to)
                                     cl.inviteIntoGroup(msg.to, [Zmid])
-                                    cl.sendMessage(msg.to,"Grup"+str(ginfo.name)+"Stay di luar bos")
+                                    #cl.sendMessage(msg.to,"Grup"+str(ginfo.name)+"Stay di luar bos")
                                 except:
                                     pass           
 
@@ -3765,7 +3769,7 @@ def bot(op):
                                 G.preventedJoinByTicket = True
                                 ke.updateGroup(G)
 
-                        elif cmd == "kiker in":
+                        elif cmd == "demit melbu":
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
                                 ginfo = cl.getGroup(msg.to)
@@ -3774,15 +3778,15 @@ def bot(op):
                                 invsend = 0
                                 Ticket = cl.reissueGroupTicket(msg.to)
                                 sw.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                sw.sendMessage(msg.to, "Ghost masuk "+str(G.name))
+                                sw.sendMessage(msg.to, "Ini katara "+str(G.name))
                                 G = sw.getGroup(msg.to)
                                 G.preventedJoinByTicket = True
                                 sw.updateGroup(G)
 
-                        elif cmd == "kiker out":
+                        elif cmd == "demit metu":
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
-                                sw.sendMessage(msg.to, "Ghost pulang "+str(G.name))
+                                sw.sendMessage(msg.to, "Tak balek Alam barzah sek "+str(G.name))
                                 sw.leaveGroup(msg.to)
 
                         elif cmd == "speed" or cmd == "sp":
@@ -4245,7 +4249,7 @@ def bot(op):
                                   for target in targets:
                                    if not target in admin and Bots:
                                       try:
-                                          klist=[cl,ki,kk]
+                                          klist=[cl,ki]
                                           kicker=random.choice(klist)
                                           kicker.kickoutFromGroup(msg.to,[target])
                                           print (msg.to,[g.mid])

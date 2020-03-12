@@ -1,6 +1,18 @@
 {
+    ".dahlah": {
+        "STKID": "420",
+        "STKPKGID": "1"
+    },
     ":(": {
         "STKID": "52002750",
+        "STKPKGID": "11537"
+    },
+    "aaaa": {
+        "STKID": "20308967",
+        "STKPKGID": "1596760"
+    },
+    "berak": {
+        "STKID": "52002736",
         "STKPKGID": "11537"
     },
     "galon": {
